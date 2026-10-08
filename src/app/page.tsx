@@ -3,6 +3,8 @@ import { auth } from "@/auth";
 import { getProducts } from "@/lib/products";
 import { AuthButtons } from "@/component/auth-buttons";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const session = await auth();
   const products = getProducts();
@@ -23,7 +25,7 @@ export default async function HomePage() {
         {products.map((product) => (
           <article key={product.id} className="product-card" data-testid="product">
             <div className="product-meta">
-              <span className="product-badge">ยอดนิยม</span>
+              <span className="product-badge">สินค้ายอดนิยม</span>
               <h2>{product.name}</h2>
             </div>
 
@@ -55,4 +57,3 @@ export default async function HomePage() {
     </main>
   );
 }
-export const dynamic = 'force-dynamic';
